@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-      <div className="relative bg-gradient-to-br from-[#4fbf8b]/10 via-teal-50 to-cyan-50 min-h-screen flex items-center">
+        <div className="relative bg-gradient-to-br from-[#4fbf8b]/10 via-teal-50 to-cyan-50 min-h-screen flex items-center overflow-hidden">
         
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
