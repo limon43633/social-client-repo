@@ -7,7 +7,7 @@ const Feature = () => {
       title: "Easy Event Creation",
       description: "Create and manage social development events with our intuitive platform in just a few clicks.",
       bgColor: "bg-emerald-50",
-      iconColor: "text-emerald-600"
+      iconColor: "text-[#4fbf8b]"
     },
     {
       icon: Users,
@@ -28,7 +28,7 @@ const Feature = () => {
       title: "Event Notifications",
       description: "Stay updated with real-time notifications about events you've joined or might be interested in.",
       bgColor: "bg-teal-50",
-      iconColor: "text-teal-600"
+      iconColor: "text-[#4fbf8b]"
     },
     {
       icon: Shield,
@@ -58,13 +58,13 @@ const Feature = () => {
       <div className="container mx-auto px-4 relative">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-gray-900">Why Choose </span>
-            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-              CommunityImpact
+          <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold mb-4">
+            <span className="text-gray-900">Why Choose  </span>
+            <span className="text-[#4fbf8b] ">
+               SOCIALSPARK
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-500 max-w-3xl mx-auto">
             Everything you need to organize, participate, and make a difference in your local community.
           </p>
         </div>
@@ -87,7 +87,7 @@ const Feature = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-500 leading-relaxed">
                 {feature.description}
               </p>
             </div>
