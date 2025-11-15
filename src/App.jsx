@@ -1,12 +1,21 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import Banner from './components/Banner'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Banner />
+      
+      <Routes>
+
+      {/* public routes */}
+
+      <Route path="/" element={<Home />} />
+
+
+      </Routes>
     </div>
   )
 }
