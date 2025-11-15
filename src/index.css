@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+/* ----------------------------- */
+/* LIGHT THEME (DEFAULT)         */
+/* ----------------------------- */
+:root {
+  --bg-main: white;
+  --text-main: black;
+  --nav-bg: white;
+}
+
+/* ----------------------------- */
+/* DARK THEME                    */
+/* ----------------------------- */
+.dark {
+  --bg-main: #111827;      /* gray-900 */
+  --text-main: #f3f4f6;    /* gray-100 */
+  --nav-bg: #1f2937;       /* gray-800 */
+}
+
+/* Background + text applied globally */
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Tailwind custom colors */
+@theme {
+  --color-primary: #4fbf8b;
+  --color-primary-dull: #44ae7c;
+}
