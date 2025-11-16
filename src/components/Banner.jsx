@@ -31,7 +31,7 @@ const Banner = () => {
                 <span className="text-gray-900">in Your Community</span>
               </h1>
   
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-500 leading-relaxed">
                 Connect with like-minded individuals and participate in meaningful social service events.
                 From tree plantations to community cleanups, be the change you want to see.
               </p>
