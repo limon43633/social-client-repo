@@ -1,128 +1,58 @@
 const Gallery = () => {
+    const galleryItems = [
+        {
+            image: "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=800&q=80",
+            title: "Road Cleaning"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80",
+            title: "Tree Planting"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80",
+            title: "Free Food Delivery"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&q=80",
+            title: "Distributing Water"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80",
+            title: "Helping Poor People During Medical Need"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1615461065929-4f8ffed6ca40?w=800&q=80",
+            title: "Blood Donation Arrange / Connect"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+            title: "Helping Street Children"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&q=80",
+            title: "Helping Street Animals"
+        }
+    ];
+
     return (
-        <div className="py-20">
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-            
-                * {
-                    font-family: 'Poppins', sans-serif;
-                }
-            `}</style>
-            <h1 className="text-3xl font-semibold text-center mx-auto">Our Latest Creations</h1>
-            <p className="text-sm text-slate-500 text-center mt-2 max-w-lg mx-auto">A visual collection of our most recent works - each piece crafted with intention, emotion, and style.</p>
-            <div className="flex flex-wrap items-center justify-center mt-12 gap-4 max-w-5xl mx-auto">
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=736&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
+        <div className=" max-w-[1280px] mx-auto px-4 w-full py-12 md:py-20 ">
+            <h1 className="text-3xl md:text-4xl font-semibold text-center mx-auto">Here are some of our work in Gallery</h1>
+            <p className="text-base md:text-xl text-gray-500 text-center mt-4 md:mt-6 max-w-lg mx-auto px-4">
+                A visual collection of our most recent works - each event has been done with intention, emotion, and positive mind.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 md:mt-12 max-w-7xl mx-auto">
+                {galleryItems.map((item, index) => (
+                    <div key={index} className="relative group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="w-full h-64 md:h-72 object-cover object-center" 
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <h1 className="text-lg md:text-xl font-medium">{item.title}</h1>
+                        </div>
                     </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1649265825072-f7dd6942baed?q=80&w=798&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=687&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1729086046027-09979ade13fd?q=80&w=862&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1601568494843-772eb04aca5d?q=80&w=687&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1585687501004-615dfdfde7f1?q=80&w=703&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=736&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div className="relative group rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1649265825072-f7dd6942baed?q=80&w=798&auto=format&fit=crop" alt="image" className="size-56 object-cover object-top" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-xl font-medium">Image Title</h1>
-                        <a href="#" className="flex items-center gap-1 text-sm text-white/70">
-                            Show More
-                            <svg width="16" height="16" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
