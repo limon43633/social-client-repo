@@ -1,7 +1,7 @@
 const Banner = () => {
     return (
-        <div className="relative bg-gradient-to-br from-[#4fbf8b]/10 via-teal-50 to-cyan-50 min-h-screen flex items-center overflow-hidden">
-        
+      <div className="relative bg-gradient-to-br from-[#4fbf8b]/10 via-teal-50 to-cyan-50 min-h-screen flex items-center overflow-hidden py-15 md:py-10">
+  
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#4fbf8b] rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="max-w-[1280px] mx-auto px-4 w-full py-8 md:py-12 lg:py-16 relative w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
   
-            {/* Left Content */}
+            {/* Left Content (UNCHANGED) */}
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg backdrop-blur-sm border border-[#4fbf8b]/50">
                 <span className="relative flex h-3 w-3">
@@ -82,50 +82,62 @@ const Banner = () => {
               </div>
             </div>
   
-            {/* Right Image */}
+            {/* ---------- RIGHT SIDE (UPDATED) ---------- */}
             <div className="relative">
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 w-72 h-72 bg-gradient-to-br from-[#4fbf8b] to-teal-400 rounded-3xl transform rotate-6 opacity-20 blur-2xl"></div>
-                <div className="absolute -bottom-6 -right-6 w-72 h-72 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-3xl transform -rotate-6 opacity-20 blur-2xl"></div>
+              <div className="grid grid-cols-2 gap-6 relative">
   
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" 
-                    alt="Community volunteers working together"
-                    className="w-full h-full object-cover"
+                {/* Big Tree Planting Image */}
+                <div className="col-span-2 rounded-3xl overflow-hidden shadow-2xl border-4 border-none">
+                  <img
+                    src="https://i.ibb.co.com/twB6x84p/community-support-kindness-people-depicted-cinematic-style-scene.jpg"
+                    alt="Tree Planting"
+                    className="w-full h- object-cover"
                   />
-  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-  
-                  <div className="absolute top-6 right-6 bg-white rounded-2xl p-4 shadow-xl backdrop-blur-sm border border-gray-200 animate-float">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#4fbf8b] to-teal-500 rounded-xl flex items-center justify-center">
-                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-gray-900">2.5K+</div>
-                        <div className="text-xs text-gray-600">Joined Today</div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div className="absolute bottom-6 left-6 bg-white rounded-2xl p-4 shadow-xl backdrop-blur-sm border border-gray-200 animate-float animation-delay-2000">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
-                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-gray-900">98%</div>
-                        <div className="text-xs text-gray-600">Success Rate</div>
-                      </div>
-                    </div>
-                  </div>
-  
                 </div>
+  
+                {/* Free Treatment Image */}
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-none">
+                  <img
+                    src="https://i.ibb.co.com/pBh4yvj7/group-asian-senior-people-sit-260nw-2161441055.webp"
+                    alt="Free medical treatment"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+  
+                {/* Free Food Delivery Image */}
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-none">
+                  <img
+                    src="https://i.ibb.co.com/wNYqSZnD/istockphoto-1430371766-612x612.jpg"
+                    alt="Food delivery"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+  
+                {/* Floating Card */}
+                <div className="absolute -bottom-6 left-6 bg-white rounded-2xl p-4 shadow-2xl backdrop-blur-md border border-gray-200 animate-float">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#4fbf8b] to-teal-500 rounded-xl flex items-center justify-center">
+                      <svg
+                        className="w-7 h-7 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0-6C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900">Join Our Mission</div>
+                      <div className="text-xs text-gray-600">Together we thrive</div>
+                    </div>
+                  </div>
+                </div>
+  
               </div>
             </div>
   
@@ -157,7 +169,6 @@ const Banner = () => {
           .animate-gradient { background-size: 200% 200%; animation: gradient 3s ease infinite; }
           .animate-float { animation: float 3s ease-in-out infinite; }
         `}</style>
-  
       </div>
     );
   };

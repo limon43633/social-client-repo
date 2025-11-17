@@ -13,7 +13,7 @@ const Gallery = () => {
             title: "Free Food Delivery"
         },
         {
-            image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&q=80",
+            image: "https://i.ibb.co.com/8LpFkrYD/istockphoto-1391579134-612x612.jpg",
             title: "Distributing Water"
         },
         {
