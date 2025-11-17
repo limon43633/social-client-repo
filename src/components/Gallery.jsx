@@ -36,7 +36,7 @@ const Gallery = () => {
 
     return (
         <div className=" max-w-[1280px] mx-auto px-4 w-full py-12 md:py-20 ">
-            <h1 className="text-3xl md:text-4xl font-semibold text-center mx-auto">Here are some of our work in Gallery</h1>
+            <h1 className="text-3xl md:text-4xl font-semibold text-center mx-auto">Here are some of our <span className="text-[#4fbf8b]">work in Gallery</span></h1>
             <p className="text-base md:text-xl text-gray-500 text-center mt-4 md:mt-6 max-w-lg mx-auto px-4">
                 A visual collection of our most recent works - each event has been done with intention, emotion, and positive mind.
             </p>
