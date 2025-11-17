@@ -24,7 +24,7 @@ const Navbar = () => {
   if (loading) return null;
 
   return (
-    <header className="shadow-lg sticky top-0 z-50 bg-[var(--nav-bg)] transition-colors duration-300">
+    <header className="backdrop-blur-xl bg-white/20 dark:bg-gray-900/20 border-b border-white/30 dark:border-white/10 shadow-lg sticky top-0 z-50 transition-colors duration-300">
       <nav className="max-w-[1280px] mx-auto px-4 w-full">
         <div className="flex justify-between items-center h-16">
 

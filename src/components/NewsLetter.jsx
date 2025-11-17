@@ -2,8 +2,8 @@ import { Mail } from 'lucide-react';
 
 const NewsLetter = () => {
   return (
-    <div className="py-16 md:py-24 bg-gray-100 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="py-18  md:py-24  px-4">
+      <div className="max-w-4xl mx-auto pb-18">
         {/* Icon */}
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 bg-[#4fbf8b] rounded-full flex items-center justify-center">
