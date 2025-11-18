@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth, useTheme } from '../context/AppContext.jsx'; 
+import { useAuth, useTheme } from '../context/AppContext.jsx';
 import { LogIn, LogOut, PlusCircle, CalendarCheck, Settings, Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
@@ -22,6 +22,15 @@ const Navbar = () => {
   };
 
   if (loading) return null;
+
+  // Fallback Avatar + Display Name
+  const avatarURL =
+    user?.photoURL ||
+    `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      user?.displayName || user?.email || "User"
+    )}&background=random`;
+
+  const displayName = user?.displayName || user?.email || "Unknown User";
 
   return (
     <header className="backdrop-blur-xl bg-white/20 dark:bg-gray-900/20 border-b border-white/30 dark:border-white/10 shadow-lg sticky top-0 z-50 transition-colors duration-300">
@@ -82,8 +91,8 @@ const Navbar = () => {
                   >
                     <img
                       className="h-10 w-10 rounded-full border-2 border-indigo-500 object-cover"
-                      src={user.photoURL}
-                      alt={user.displayName}
+                      src={avatarURL}
+                      alt={displayName}
                     />
                   </button>
 
@@ -105,7 +114,7 @@ const Navbar = () => {
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <div className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400 border-b dark:border-gray-700 truncate">
-                      {user.displayName}
+                      {displayName}
                     </div>
 
                     {privateLinks.map((link) => (
