@@ -63,7 +63,7 @@ const Banner = () => {
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
                 <button className="group relative px-8 py-4 bg-[#4fbf8b] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto">
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Explore All Events
+                  Upcoming Events
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
