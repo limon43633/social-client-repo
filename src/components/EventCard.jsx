@@ -7,6 +7,8 @@ const EventCard = ({ event }) => {
     navigate(`/events/${event._id}`);
   };
 
+  
+
   const formatDate = (dateString) => {
     const options = { 
       year: 'numeric', 

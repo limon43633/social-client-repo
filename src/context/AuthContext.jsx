@@ -20,10 +20,25 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Observe auth state
+  // Get Firebase ID token
+  const getToken = async () => {
+    if (auth.currentUser) {
+      return await auth.currentUser.getIdToken();
+    }
+    return null;
+  };
+
+  // Observe auth state and store token
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (current) => {
-      setUser(current);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        const token = await getToken();
+        localStorage.setItem('token', token);
+        setUser(currentUser);
+      } else {
+        localStorage.removeItem('token');
+        setUser(null);
+      }
       setLoading(false);
     });
     return () => unsubscribe();
@@ -37,6 +52,11 @@ export const AuthProvider = ({ children }) => {
         displayName: name || "",
         photoURL: photoURL || "",
       });
+      
+      // Get token and store
+      const token = await getToken();
+      localStorage.setItem('token', token);
+      
       // refresh user state
       setUser({ ...res.user, displayName: name, photoURL });
       toast.success("Registered successfully");
@@ -50,6 +70,11 @@ export const AuthProvider = ({ children }) => {
   const login = async ({ email, password }) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Get token and store
+      const token = await getToken();
+      localStorage.setItem('token', token);
+      
       setUser(res.user);
       toast.success("Logged in successfully");
       return res.user;
@@ -63,6 +88,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const provider = new GoogleAuthProvider();
       const res = await signInWithPopup(auth, provider);
+      
+      // Get token and store
+      const token = await getToken();
+      localStorage.setItem('token', token);
+      
       setUser(res.user);
       toast.success("Logged in with Google");
       return res.user;
@@ -75,6 +105,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(auth);
+      localStorage.removeItem('token');
       setUser(null);
       toast.success("Logged out");
     } catch (err) {
@@ -85,7 +116,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, register, login, loginWithGoogle, logout }}
+      value={{ 
+        user, 
+        loading, 
+        register, 
+        login, 
+        loginWithGoogle, 
+        logout,
+        getToken 
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,5 +1,6 @@
 // src/App.jsx
 import React from "react";
+import { Toaster } from 'react-hot-toast';
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -10,6 +11,8 @@ import CreateEvent from "./pages/CreateEvent";
 import ManageEvents from "./pages/ManageEvents";
 import JoinedEvents from "./pages/JoinedEvents";
 import RequireAuth from "./components/RequireAuth";
+import EventDetails from "./pages/EventDetails";
+import UpcomingEvents from "./pages/UpcomingEvents";
 
 const App = () => {
   return (
@@ -21,6 +24,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/events/:id" element={<EventDetails />} />
+        <Route path="/upcoming-events" element={<UpcomingEvents />} />
 
         {/* protected routes */}
         <Route
@@ -47,9 +52,51 @@ const App = () => {
             </RequireAuth>
           }
         />
+        <Route 
+          path="/joined-events"
+          element={
+            <RequireAuth>
+            <JoinedEvents />
+          </RequireAuth>
+          }
+        />
+        <Route
+            path="/manage-events"
+            element={
+              <RequireAuth>
+                <ManageEvents />
+              </RequireAuth>
+            }
+        />
+
       </Routes>
 
+
+
+
+
       <Footer />
+
+
+
+
+      <Toaster 
+  position="top-right"
+  toastOptions={{
+    duration: 4000,
+    style: {
+      background: '#363636',
+      color: '#fff',
+    },
+    success: {
+      duration: 3000,
+      theme: {
+        primary: 'green',
+        secondary: 'black',
+      },
+    },
+  }}
+/>
     </div>
   );
 };

@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useAuth } from '../context/AuthContext';
-
+import { eventApi } from '../api/eventApi';
+import toast from 'react-hot-toast';
 
 const CreateEvent = () => {
-  const { user } = useAuth();
+  const { user, getToken } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -92,29 +93,29 @@ const CreateEvent = () => {
 
     try {
       const eventData = {
-        ...formData,
-        creatorEmail: user.email,
-        creatorName: user.displayName,
-        creatorPhoto: user.photoURL,
-        createdAt: new Date().toISOString()
+        title: formData.title,
+        description: formData.description,
+        eventType: formData.eventType,
+        thumbnail: formData.thumbnail,
+        location: formData.location,
+        eventDate: formData.eventDate.toISOString()
       };
 
-      const createEvent = async (data) => ({ success: true }); // Placeholder
-      const result = await createEvent(eventData);
+      const result = await eventApi.createEvent(eventData);
 
       if (result.success) {
-        console.log('Event created successfully!');
-        navigate('/upcoming-events');
+        toast.success('Event created successfully!');
+        navigate('/'); // Redirect to home or upcoming events page
       }
     } catch (error) {
       console.error('Error creating event:', error);
+      toast.error(error.response?.data?.message || 'Failed to create event');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    // Outer container adjusted for better centering control
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-start py-25 px-10 sm:px-6 dark:bg-gray-900">
       <div className="max-w-2xl mx-auto w-full"> 
         <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 dark:bg-gray-800">
@@ -135,7 +136,6 @@ const CreateEvent = () => {
                 value={formData.title}
                 onChange={handleChange}
                 placeholder="Enter event title"
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
                   placeholder-gray-400 dark:placeholder-gray-500 
                   dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
@@ -159,7 +159,6 @@ const CreateEvent = () => {
                 onChange={handleChange}
                 placeholder="Describe your event in detail..."
                 rows="4"
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
                   placeholder-gray-400 dark:placeholder-gray-500 
                   dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
@@ -181,9 +180,8 @@ const CreateEvent = () => {
                 name="eventType"
                 value={formData.eventType}
                 onChange={handleChange}
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
-                  dark:bg-gray-700 dark:text-gray-100 dark:border-gray-60
+                  dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
                   ${errors.eventType ? 'border-red-500' : 'border-gray-300'}`
                 }
               >
@@ -209,7 +207,6 @@ const CreateEvent = () => {
                 value={formData.thumbnail}
                 onChange={handleChange}
                 placeholder="https://example.com/image.jpg"
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
                   placeholder-gray-400 dark:placeholder-gray-500 
                   dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
@@ -246,7 +243,6 @@ const CreateEvent = () => {
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="Select location for the event"
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
                   placeholder-gray-400 dark:placeholder-gray-500 
                   dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
@@ -270,7 +266,6 @@ const CreateEvent = () => {
                 showTimeSelect
                 dateFormat="MMMM d, yyyy h:mm aa"
                 placeholderText="Select event date"
-                // FIX APPLIED: Added dark mode background and text colors
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4fbf8b] focus:border-[#4fbf8b] transition-colors 
                   placeholder-gray-400 dark:placeholder-gray-500
                   dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600
@@ -282,7 +277,7 @@ const CreateEvent = () => {
               )}
             </div>
 
-            {/* Submit Button (The button is already well-styled) */}
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-[#4fbf8b] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#45a878] focus:ring-2 focus:ring-[#4fbf8b] focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
